@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Send, Loader2 } from 'lucide-react';
 import logoSrc from '../../public/logo.svg';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxArAAOCf-TZAUh9IJnsOIhUwXwjPuX1bpqDh9PnGcgNZB8ci4MOI4lZUF7Zz2Y9NMV/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQ5aO7h30jAgOYajNld6AllF0-X3-Ux_4SG_Aw3U9fmdEpJJNTFcKO7KndN3MHyJA9/exec';
 
 const serviceOptions = [
     'End to End Content Production',
