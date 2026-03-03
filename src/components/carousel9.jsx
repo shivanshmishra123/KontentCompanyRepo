@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const videos = [
   { id: "1169570021", title: "Chai" },
-  { id: "1169570298", title: "SimeeMeri" },
+  // { id: "1169570298", title: "SimeeMeri" },
   { id: "1169569868", title: "ArmpitBala" },
   { id: "1169569974", title: "BackgroundAnimation" },
 ];
