@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Send } from 'lucide-react';
+import { ArrowLeft, Send, Loader2 } from 'lucide-react';
 import logoSrc from '../../public/logo.svg';
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxArAAOCf-TZAUh9IJnsOIhUwXwjPuX1bpqDh9PnGcgNZB8ci4MOI4lZUF7Zz2Y9NMV/exec';
 
 const serviceOptions = [
     'End to End Content Production',
@@ -26,6 +28,7 @@ export default function ContactForm() {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
 
     // Scroll to top on mount
     useEffect(() => {
@@ -47,8 +50,8 @@ export default function ContactForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitting(true);
 
-        // Resolve "Other" service into a single string
         const payload = {
             name: formData.name,
             email: formData.email,
@@ -62,17 +65,15 @@ export default function ContactForm() {
         };
 
         try {
-            await fetch(
-                'https://script.google.com/macros/s/AKfycbxArAAOCf-TZAUh9IJnsOIhUwXwjPuX1bpqDh9PnGcgNZB8ci4MOI4lZUF7Zz2Y9NMV/exec',
-                {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    headers: { 'Content-Type': 'text/plain' },
-                }
-            );
+            await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: { 'Content-Type': 'text/plain' },
+            });
         } catch (err) {
-            // Submission still goes through in most cases (CORS opaque response)
             console.warn('Form submit network note:', err);
+        } finally {
+            setSubmitting(false);
         }
 
         setSubmitted(true);
@@ -265,9 +266,18 @@ export default function ContactForm() {
                             </div>
 
                             {/* Submit */}
-                            <button type="submit" className="btn-cta contact-submit" id="contact-submit">
-                                <span>Submit</span>
-                                <Send size={16} />
+                            <button type="submit" className="btn-cta contact-submit" id="contact-submit" disabled={submitting}>
+                                {submitting ? (
+                                    <>
+                                        <Loader2 size={16} className="form-spinner" />
+                                        <span>Submitting…</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span>Submit</span>
+                                        <Send size={16} />
+                                    </>
+                                )}
                             </button>
                         </form>
                     </div>
