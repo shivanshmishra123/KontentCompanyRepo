@@ -405,10 +405,14 @@
 
   .work-title {
     color: var(--color-beige);
-    @apply absolute z-[2] text-5xl font-bold uppercase;
-    left: 50%;
+    @apply absolute z-[2] font-bold uppercase;
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    left: 0;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
     letter-spacing: -1px;
   }
 
