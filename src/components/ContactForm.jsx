@@ -106,13 +106,12 @@ export default function ContactForm() {
 
                         <div className="contact-card-header">
                             <h1 className="contact-card-title">
-                                Let's <span>Connect</span>
+                                Project <span>Inquiry Form</span>
                             </h1>
                             <p className="contact-card-subtitle">
-                                Tell us about your project and we'll get back to&nbsp;you.
+                                Please fill out the details below so we can understand your requirements and respond with a tailored proposal.
                             </p>
                         </div>
-
                         <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
                             {/* Name */}
                             <div className="form-group">
@@ -160,7 +159,7 @@ export default function ContactForm() {
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    placeholder="+91 00000 00000"
+                                    placeholder="+91 XXXXX XXXXX"
                                     value={formData.phone}
                                     onChange={handleChange}
                                     required
@@ -259,7 +258,7 @@ export default function ContactForm() {
                                     type="text"
                                     id="budget"
                                     name="budget"
-                                    placeholder="e.g. ₹50,000 – ₹1,00,000"
+                                    placeholder="e.g. ₹5,000 – ₹10,000"
                                     value={formData.budget}
                                     onChange={handleChange}
                                 />
