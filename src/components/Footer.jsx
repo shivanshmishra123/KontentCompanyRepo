@@ -52,7 +52,7 @@ export default function Footer() {
                     <div className="footer-col">
                         <h4 className="footer-col-title">Email</h4>
                         <ul>
-                            <li><a href="mailto:info@kontentcompany.com">info@kontentcompany.com</a></li>
+                            <li><a href="mailto:info@kontentcompany.com">info@kontentcompany.in</a></li>
                         </ul>
                     </div>
 
